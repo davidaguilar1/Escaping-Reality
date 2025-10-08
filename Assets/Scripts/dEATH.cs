@@ -11,9 +11,9 @@ public class dEATH : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("SampleScene");
         }

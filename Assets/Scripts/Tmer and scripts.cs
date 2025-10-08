@@ -1,20 +1,24 @@
-using UnityEngine;
-using System;
-using UnityEngine.EventSystems;
 using TMPro;
-public class Tmerandscripts : MonoBehaviour
-{
-    public float timer = 30f;
-    public TextMeshProUGUI Points;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+using UnityEngine;
+using UnityEngine.UI;
 
-    // Update is called once per frame
+public class ScoreManager : MonoBehaviour
+{
+    public float score;
+    public float timer;
+    public TMP_Text scoreText;
+    public TMP_Text timertext;
+    public float timers = 1f;
+    public float timeMultiplier = 1f;
+    public float scoreMultiplier = 5f;
+
+
     void Update()
     {
-        
+        timers += Time.deltaTime;
+        score = timers * scoreMultiplier;
+        timer = timers * timeMultiplier;
+        scoreText.text = "Score: " + Mathf.Round(score).ToString();
+        timertext.text = "Time: " + Mathf.Round(timer).ToString();
     }
 }
